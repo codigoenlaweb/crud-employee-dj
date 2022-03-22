@@ -8,7 +8,7 @@ class Employee(models.Model):
     first_name = models.CharField("employee first name", max_length=32)
     last_name = models.CharField("employee last name", max_length=32)
     job = models.CharField("employee job",max_length=50)
-    avatar = models.ImageField("employee image",upload_to="employee", blank=True, null="True")
+    avatar = models.ImageField("employee image",upload_to="image-database/emoloyee", blank=True, null="True")
 
     
     class Meta:

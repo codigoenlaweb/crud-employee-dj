@@ -4,7 +4,7 @@ from django.db import models
 class Department(models.Model):
     name = models.CharField("Department name",max_length=50)
     short_name = models.CharField("department short name", max_length=20, unique=True)
-    anulate = models.BooleanField("department in operation", default=False)
+    active = models.BooleanField("department in operation", default=True)
 
 
     class Meta:
@@ -13,7 +13,7 @@ class Department(models.Model):
 
 
     def activate_or_not(self) -> str:
-        return "department activate" if not self.anulate else "department desactivate"
+        return "department activate" if self.active else "department desactivate"
 
 
     def __str__(self) -> str:
