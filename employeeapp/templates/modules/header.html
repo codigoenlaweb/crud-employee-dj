@@ -1,11 +1,38 @@
 <header class="container-primary">
-    <nav class="container-secondary flex flex-wrap justify-between items-center">
-        <h1 class="text-2xl text-cyan-500 font-bold">Employee</h1>
-        <ul class="flex flex-wrap justify-center items-center">
-            <li class="mr-2"><a class="link-active" href="">Home</a></li>
-            <li class="mr-2"><a class="link-desactive" href="">List</a></li>
-            <li class="mr-2"><a class="link-desactive" href="">Deparments</a></li>
-            <li class=""><a class="transition duration-200 ease-linear ml-2 block bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-1 px-2 rounded" href="">New employe</a></li>
-        </ul>
-    </nav>
+  <nav
+    class="relative container-secondary flex flex-wrap justify-between items-center"
+  >
+    <h1 class="text-xl md:text-2xl  text-cyan-500 font-bold">Employee</h1>
+
+    {% comment %} svg menu mobile {% endcomment %}
+    <svg
+      class="md:hidden"
+      id="hamburger"
+      xmlns="http://www.w3.org/2000/svg"
+      height="28px"
+      viewBox="0 0 24 24"
+      width="28px"
+      fill="#6b7280"
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+    </svg>
+
+    {% comment %} menu mobile {% endcomment %}
+    <ul
+      id="hamburger-menu"
+      class="hidden transition duration-200 ease-linear opacity-0 mt-1 absolute right-0 top-12 shadow rounded bg-white flex-col py-2 px-4"
+    >
+      <li class="mr-2"><a class="link-active" href="">Home</a></li>
+      <li class="mr-2"><a class="link-desactive" href="">List</a></li>
+      <li class="mr-2"><a class="link-desactive" href="">Deparments</a></li>
+    </ul>
+
+    {% comment %} menu table and desktop {% endcomment %}
+    <ul class="hidden md:flex flex-wrap justify-center items-center">
+      <li class="mr-2"><a class="link-active" href="">Home</a></li>
+      <li class="mr-2"><a class="link-desactive" href="">List</a></li>
+      <li class="mr-2"><a class="link-desactive" href="">Deparments</a></li>
+    </ul>
+  </nav>
 </header>

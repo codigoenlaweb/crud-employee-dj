@@ -12,10 +12,10 @@
     }
 
     .link-active{
-      @apply text-lg font-semibold text-pink-600;
+      @apply md:text-lg font-semibold text-pink-600;
     }
 
     .link-desactive{
-      @apply text-lg font-semibold text-gray-400 hover:text-cyan-500 focus:text-cyan-500 transition duration-200 ease-linear;
+      @apply md:text-lg font-semibold text-gray-400 hover:text-cyan-500 focus:text-cyan-500 transition duration-200 ease-linear;
     }
 }
