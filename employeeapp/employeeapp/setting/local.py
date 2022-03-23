@@ -1,3 +1,4 @@
+from ntpath import join
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -36,3 +37,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR.parent / "static",
 ]
+
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = 'media'
