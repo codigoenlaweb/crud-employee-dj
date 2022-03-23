@@ -6,13 +6,7 @@ from .models import Department
 class DepartmentAdmin(admin.ModelAdmin):
     '''Admin View for Department'''
 
-    # list_display = ('',)
-    # list_filter = ('',)
-    # inlines = [
-    #     Inline,
-    # ]
-    # raw_id_fields = ('',)
-    # readonly_fields = ('',)
-    # search_fields = ('',)
-    # date_hierarchy = ''
-    # ordering = ('',)
+    list_display = ('name', 'short_name', 'active',)
+    list_filter = ('active',)
+    search_fields = ('short_name',)
+    list_per_page = 20
