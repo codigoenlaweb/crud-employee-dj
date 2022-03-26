@@ -1,78 +1,80 @@
-{% extends 'modules/base.html' %}
-{% load static %}
-
-{% block script %}
-    <script src="{% static 'js/carrousel.js' %}" type="module" defer></script>
+{% extends 'modules/base.html' %} {% load static %} {% block script %}
+<script src="{% static 'js/carrousel.js' %}" type="module" defer></script>
 {% endblock script %}
-    
 {% block head_title %}Home{% endblock head_title %}
-
-{% block main_content %}
+{%block main_content %}
 <main class="min-h-screen container-primary">
   <section class="container-secondary">
-    <div class="rounded-lg relative w-full overflow-x-hidden">
-        <div id="carousel" class="flex transition duration-500 ease-linear" style="width: 400%;">
-            <img
-            src="{% static 'image/employee1.jpg' %}"
-            class="w-1/4 max-h-screen"
-            alt="Camera"
-            />
+    <div class="relative w-full overflow-x-hidden mx-auto">
+      <div
+        id="carousel"
+        class="flex transition duration-500 ease-linear"
+        style="width: 400%"
+      >
+        <img
+          src="{% static 'image/employee1.jpg' %}"
+          class="w-1/4 max-h-screen rounded-lg"
+          alt="employees"
+        />
 
-            <img
-            src="{% static 'image/employee2.webp' %}"
-            class="w-1/4 max-h-screen"
-            alt="Camera"
-            />
+        <img
+          src="{% static 'image/employee2.webp' %}"
+          class="w-1/4 max-h-screen rounded-lg"
+          alt="employees"
+        />
 
-            <img
-            src="{% static 'image/employee3.webp' %}"
-            class="w-1/4 max-h-screen"
-            alt="Exotic Fruits"
-            />
-            <img
-            src="{% static 'image/employee4.webp' %}"
-            class="w-1/4 max-h-screen"
-            alt="Exotic Fruits"
-            /> 
-        </div>
-        
-        {% comment %} button prev {% endcomment %}
-        <button id="prev">
-          <svg
-            class="absolute left-2 md:left-4 top-1/2"
-            xmlns="http://www.w3.org/2000/svg"
-            enable-background="new 0 0 24 24"
-            height="32px"
-            viewBox="0 0 24 24"
-            width="32px"
-            fill="white"
-          >
-            <rect fill="none" height="24" width="24" />
-            <g>
-              <polygon
-                points="17.77,3.77 16,2 6,12 16,22 17.77,20.23 9.54,12"
-              />
-            </g>
-          </svg>
-        </button>
+        <img
+          src="{% static 'image/employee3.webp' %}"
+          class="w-1/4 max-h-screen rounded-lg"
+          alt="employees"
+        />
+        <img
+          src="{% static 'image/employee4.webp' %}"
+          class="w-1/4 max-h-screen rounded-lg"
+          alt="employees"
+        />
+      </div>
 
-        {% comment %} button next {% endcomment %}
-        <button id="next">
-          <svg
-            class="absolute right-2 md:right-4 top-1/2"
-            xmlns="http://www.w3.org/2000/svg"
-            enable-background="new 0 0 24 24"
-            height="34px"
-            viewBox="0 0 24 24"
-            width="34px"
-            fill="white"
-          >
-            <g><path d="M0,0h24v24H0V0z" fill="none" /></g>
-            <g>
-              <polygon points="6.23,20.23 8,22 18,12 8,2 6.23,3.77 14.46,12" />
-            </g>
-          </svg>
-        </button>
+      {% comment %} button prev {% endcomment %}
+      <button id="prev">
+        <svg
+          class="absolute left-2 md:left-4 top-1/2"
+          xmlns="http://www.w3.org/2000/svg"
+          enable-background="new 0 0 24 24"
+          height="32px"
+          viewBox="0 0 24 24"
+          width="32px"
+          fill="#0e7490"
+        >
+          <rect fill="none" height="24" width="24" />
+          <g>
+            <polygon points="17.77,3.77 16,2 6,12 16,22 17.77,20.23 9.54,12" />
+          </g>
+        </svg>
+      </button>
+
+      {% comment %} button next {% endcomment %}
+      <button id="next">
+        <svg
+          class="absolute right-2 md:right-4 top-1/2"
+          xmlns="http://www.w3.org/2000/svg"
+          enable-background="new 0 0 24 24"
+          height="34px"
+          viewBox="0 0 24 24"
+          width="34px"
+          fill="#0e7490"
+        >
+          <g><path d="M0,0h24v24H0V0z" fill="none" /></g>
+          <g>
+            <polygon points="6.23,20.23 8,22 18,12 8,2 6.23,3.77 14.46,12" />
+          </g>
+        </svg>
+      </button>
+      <h2 class="mt-2 md:mt-4 text-xl md:text-2xl text-pink-600 font-bold text-center">Welcome to the employee registration system</h2>
+      <article class="bg-sky-300 container-primary rounded-lg text-center mt-2">
+        <h3 class="font-bold text-white text-lg md:text-xl">Register and control employees</h3>
+        <p class="text-white md:text-lg">Create, Register, Delete and Review all your actions</p>
+      </article>
     </div>
   </section>
 </main>
