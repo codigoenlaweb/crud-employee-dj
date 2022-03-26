@@ -10,9 +10,13 @@
       type="text/css"
       href="{% static 'css/style.css' %}"
     />
+    <script src="{% static 'js/hamburgerMenu.js' %}" type="module" defer></script>
+    
+    {% block script %}{% endblock script %}
+      
     <title>{% block head_title %}{% endblock head_title %}</title>
   </head>
-  <body class="bg-gray-200">
+  <body class="bg-gray-100">
     {% include "modules/header.html" %}
     {% block main_content %}{% endblock main_content %}
     {% include "modules/footer.html" %}
