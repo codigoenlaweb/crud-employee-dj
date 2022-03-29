@@ -4,5 +4,5 @@ from .views import *
 app_name = 'employee'
 
 urlpatterns = [
-    # path('', prueba.as_view()),
+    path('', EmployeeListView.as_view(), name="employeeList"),
 ]

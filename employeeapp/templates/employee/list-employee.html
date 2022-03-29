@@ -1,0 +1,76 @@
+{% extends 'modules/base.html' %} {% load static %}
+{% block head_title %}List employee{% endblock head_title %} 
+
+{% block main_content %}
+<main class="container-primary min-h-screen">
+    <form method="get" class="flex flex-wrap justify-center mb-2">
+        <input class="bg-white rounded w-1/2 max-w-xs px-2 shadow-md outline-color-primary text-gray-500 font-semibold" type="search" name="filter" id="filter" placeholder="Name">
+        <input class="ml-2 bg-white py-1 px-2 rounded shadow-md hover:text-white focus:bg-color-primary focus:text-white hover:bg-color-primary font-bold text-gray-500 transition duration-150 ease-linear outline-none" type="submit" value="Filter">
+    </form>
+    <table class="table-auto w-full max-w-screen-lg mx-auto shadow-md rounded-lg">
+    <thead class="">
+      <tr class="md:text-lg text-gray-600">
+        <th class="bg-white py-3 rounded-tl-lg">Name</th>
+        <th class="bg-white py-3">Job</th>
+        <th class="bg-white py-3">Department</th>
+        <th class="bg-white py-3 rounded-tr-lg">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in employee %}
+      <tr class="text-center text-gray-600 border-t-2 border-solid border-gray-200">
+        <td class="bg-white py-2">{{e.first_name}} {{e.last_name}}</td>
+        <td class="bg-white py-2">{{e.job}}</td>
+        <td class="bg-white py-2">{{e.department.short_name}}</td>
+        <td class="bg-white py-2">
+          <a class="mx-auto" href="" title="show">
+            <svg
+              class="mx-auto hover:fill-color-primary transition duration-150 ease-linear"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#4b5563"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M12 6c3.79 0 7.17 2.13 8.82 5.5C19.17 14.87 15.79 17 12 17s-7.17-2.13-8.82-5.5C4.83 8.13 8.21 6 12 6m0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14 12 14s-2.5-1.12-2.5-2.5S10.62 9 12 9m0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z"
+              />
+            </svg>
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div
+    class="py-1 bg-white rounded-b-lg max-w-screen-lg mx-auto shadow-md"
+  ></div>
+
+    <div class="flex flex-wrap justify-center mt-4 md:mt-6">
+        {% if page_obj.has_previous %}
+            <a class="bg-white mr-1 px-2 py-1 rounded-l-md shadow hover:bg-color-primary transition duration-150 ease-linear hover:text-white" href="?page={{ page_obj.previous_page_number }}">prev</a>
+        {% endif %}
+
+        
+        {% if paginator.num_pages > 1 %}
+            {% for page in paginator.page_range %}
+
+            {% if page != page_obj.number %}
+                <a class="bg-white mx-1 px-2 py-1 rounded-md shadow hover:bg-color-primary transition duration-150 ease-linear hover:text-white" href="?page={{ page }}&filter={{filter}}">{{page}}</a>
+            {% endif %}
+
+            {% if page == page_obj.number %}
+                <a class="bg-color-primary-dark text-white mx-1 px-2 py-1 rounded-md shadow" href="?page={{ page }}&filter={{filter}}">{{page}}</a>
+            {% endif %}
+                
+            {% endfor %}
+        {% endif %}
+            
+        {% if page_obj.has_next %}
+            <a class="bg-white ml-1 px-2 py-1 rounded-r-md shadow hover:bg-color-primary transition duration-150 ease-linear hover:text-white" href="?page={{ page_obj.next_page_number }}&filter={{filter}}">next</a>
+        {% endif %}
+    </div>
+ 
+</main>
+{% endblock main_content %}

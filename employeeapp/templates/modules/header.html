@@ -2,7 +2,7 @@
   <nav
     class="relative container-secondary flex flex-wrap justify-between items-center"
   >
-    <h1 class="text-xl md:text-2xl  text-cyan-600 font-bold">Employee</h1>
+    <h1 class="text-xl md:text-2xl text-color-primary font-bold">Employee</h1>
 
     {% comment %} svg menu mobile {% endcomment %}
     <svg
@@ -23,15 +23,15 @@
       id="hamburger-menu"
       class="hidden transition duration-200 ease-linear opacity-0 mt-1 absolute right-0 top-12 shadow rounded bg-white flex-col py-2 px-4"
     >
-      <li class="mr-2"><a class="link-active" href="">Home</a></li>
-      <li class="mr-2"><a class="link-desactive" href="">List</a></li>
+      <li class="mr-2"><a class="link-active" href="{% url 'home:home' %}">Home</a></li>
+      <li class="mr-2"><a class="link-desactive" href="{% url 'employee:employeeList' %}">List</a></li>
       <li class="mr-2"><a class="link-desactive" href="">Deparments</a></li>
     </ul>
 
     {% comment %} menu table and desktop {% endcomment %}
     <ul class="hidden md:flex flex-wrap justify-center items-center">
-      <li class="mr-2"><a class="link-active" href="">Home</a></li>
-      <li class="mr-2"><a class="link-desactive" href="">List</a></li>
+      <li class="mr-2"><a class="link-active" href="{% url 'home:home' %}">Home</a></li>
+      <li class="mr-2"><a class="link-desactive" href="{% url 'employee:employeeList' %}">List</a></li>
       <li class="mr-2"><a class="link-desactive" href="">Deparments</a></li>
     </ul>
   </nav>

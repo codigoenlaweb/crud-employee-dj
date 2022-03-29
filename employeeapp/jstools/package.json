@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tailwind": "npx tailwindcss -i ../static/css/tailwind.css -o ../static/css/style.css --watch --minify",
+    "tailwind": "npx tailwindcss -i ../static/css/tailwind.css -o ../static/css/style.css --watch",
     "tailwind-build": "npx tailwindcss -i ../static/css/tailwind.css -o ../static/css/build.css --minify"
   },
   "keywords": [],
