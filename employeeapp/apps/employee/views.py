@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Employee
 # Create your views here.
 
@@ -23,4 +23,13 @@ class EmployeeListView(ListView):
         # Add in a QuerySet of all the books
         context['filter'] = self.request.GET.get("filter")
         return context
+    
+    
+
+class EmployeeDetailView(DetailView):
+    model = Employee
+    template_name = "employee/show-employee.html"
+    context_object_name = 'employee'
+    
+
     

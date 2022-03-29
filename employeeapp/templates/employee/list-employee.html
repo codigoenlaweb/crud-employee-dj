@@ -5,7 +5,7 @@
 <main class="container-primary min-h-screen">
     <form method="get" class="flex flex-wrap justify-center mb-2">
         <input class="bg-white rounded w-1/2 max-w-xs px-2 shadow-md outline-color-primary text-gray-500 font-semibold" type="search" name="filter" id="filter" placeholder="Name">
-        <input class="ml-2 bg-white py-1 px-2 rounded shadow-md hover:text-white focus:bg-color-primary focus:text-white hover:bg-color-primary font-bold text-gray-500 transition duration-150 ease-linear outline-none" type="submit" value="Filter">
+        <input class="ml-2 button-primary" type="submit" value="Filter">
     </form>
     <table class="table-auto w-full max-w-screen-lg mx-auto shadow-md rounded-lg">
     <thead class="">
@@ -23,7 +23,7 @@
         <td class="bg-white py-2">{{e.job}}</td>
         <td class="bg-white py-2">{{e.department.short_name}}</td>
         <td class="bg-white py-2">
-          <a class="mx-auto" href="" title="show">
+          <a class="mx-auto" href="{% url 'employee:employeeshow' e.id %}" title="show">
             <svg
               class="mx-auto hover:fill-color-primary transition duration-150 ease-linear"
               xmlns="http://www.w3.org/2000/svg"

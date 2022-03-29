@@ -15,6 +15,8 @@ class Department(models.Model):
     def activate_or_not(self) -> str:
         return "department activate" if self.active else "department desactivate"
 
+    def deparment_activate(self) -> str:
+            return "active" if self.active else "inactive"
 
     def __str__(self) -> str:
         return f'{self.short_name}: {self.activate_or_not()}'

@@ -21,7 +21,7 @@
     {% comment %} menu mobile {% endcomment %}
     <ul
       id="hamburger-menu"
-      class="hidden transition duration-200 ease-linear opacity-0 mt-1 absolute right-0 top-12 shadow rounded bg-white flex-col py-2 px-4"
+      class="hidden transition duration-200 ease-linear opacity-0 mt-1 absolute right-0 top-12 shadow rounded bg-white flex-col py-2 px-4 z-10"
     >
       <li class="mr-2"><a class="link-active" href="{% url 'home:home' %}">Home</a></li>
       <li class="mr-2"><a class="link-desactive" href="{% url 'employee:employeeList' %}">List</a></li>

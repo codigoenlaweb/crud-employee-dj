@@ -18,4 +18,8 @@
     .link-desactive{
       @apply md:text-lg font-semibold text-gray-400 hover:text-color-primary focus:text-color-primary transition duration-200 ease-linear;
     }
+
+    .button-primary{
+      @apply bg-white py-1 px-2 rounded shadow-md hover:text-white focus:bg-color-primary focus:text-white hover:bg-color-primary font-bold text-gray-500 transition duration-150 ease-linear outline-none;
+    }
 }
