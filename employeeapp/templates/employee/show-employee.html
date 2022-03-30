@@ -37,8 +37,8 @@
         >
       </p>
       <div class="mb-2 md:mb-4 flex flex-wrap w-full justify-center mt-2 md:mt-4">
-        <a class="mx-2 md:mx-4 button-primary border-2 border-color-primary-dark border-solid text-color-primary-dark hover:border-color-primary focus:border-color-primary" href="">Update</a>
-        <a class="mx-2 md:mx-4 button-primary border-2 border-color-primary-dark border-solid text-color-primary-dark hover:border-color-primary focus:border-color-primary" href="">Delete</a>
+        <a class="mx-2 md:mx-4 button-primary border-2 border-color-primary-dark border-solid text-color-primary-dark hover:border-color-primary focus:border-color-primary" href="{% url 'employee:employeeupdate' employee.id %}">Update</a>
+        <a class="mx-2 md:mx-4 button-primary border-2 border-color-primary-dark border-solid text-color-primary-dark hover:border-color-primary focus:border-color-primary" href="{% url 'employee:employeedelete' employee.id %}">Delete</a>
       </div>
     </article>
 

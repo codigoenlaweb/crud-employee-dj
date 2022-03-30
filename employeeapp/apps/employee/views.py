@@ -1,5 +1,6 @@
-from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.shortcuts import redirect
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Employee
 from .forms import EmployeeForm
 # Create your views here.
@@ -44,5 +45,24 @@ class EmployeeCreateView(CreateView):
 
 class EmployeeUpdateView(UpdateView):
     model = Employee
-    template_name = "update-employee.html"
+    template_name = "employee/update-employee.html"
+    form_class = EmployeeForm
+    
+    def form_valid(self, form):
+        """If the form is valid, save the associated model."""
+        employee = form.save()
+        print(employee.avatar)
+        self.success_url = reverse_lazy('employee:employeeshow', args=[employee.id])
+        return super().form_valid(form)
+    
+
+
+class EmployeeDeleteView(DeleteView):
+    model = Employee
+    template_name = "employee/delete-employee.html"
+    success_url = reverse_lazy('employee:employeeList')
+    
+
+    
+    
 

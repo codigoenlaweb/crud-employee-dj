@@ -695,6 +695,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 0.75rem;
 }
 
+.mr-4 {
+  margin-right: 1rem;
+}
+
 .block {
   display: block;
 }
@@ -1060,9 +1064,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.hover\:text-color-primary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(9 211 172 / var(--tw-text-opacity));
+}
+
 .focus\:border-color-primary:focus {
   --tw-border-opacity: 1;
   border-color: rgb(9 211 172 / var(--tw-border-opacity));
+}
+
+.focus\:text-color-primary:focus {
+  --tw-text-opacity: 1;
+  color: rgb(9 211 172 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {
