@@ -3,12 +3,20 @@
 
 {% block main_content %}
 <main class="container-primary min-h-screen">
-    <form method="get" class="flex flex-wrap justify-center mb-2">
+      <a class="mx-auto" href="{% url 'employee:employeecreate' %}">
+        <svg class="mx-auto hover:scale-125 hover:animate-pulse transition duration-200 ease-linear" xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 0 24 24" width="60px" fill="#09D3AC"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+      </a>
+
+    {% comment %} Filter {% endcomment %}
+    <form method="get" class="flex flex-wrap justify-center mb-2 mt-2 md:mt-4">
         <input class="bg-white rounded w-1/2 max-w-xs px-2 shadow-md outline-color-primary text-gray-500 font-semibold" type="search" name="filter" id="filter" placeholder="Name">
         <input class="ml-2 button-primary" type="submit" value="Filter">
     </form>
+
+    {% comment %} Table of Employee {% endcomment %}
     <table class="table-auto w-full max-w-screen-lg mx-auto shadow-md rounded-lg">
-    <thead class="">
+    {% comment %} Table Head {% endcomment %}
+      <thead class="">
       <tr class="md:text-lg text-gray-600">
         <th class="bg-white py-3 rounded-tl-lg">Name</th>
         <th class="bg-white py-3">Job</th>
@@ -16,6 +24,7 @@
         <th class="bg-white py-3 rounded-tr-lg">Action</th>
       </tr>
     </thead>
+    {% comment %} Table Body {% endcomment %}
     <tbody>
       {% for e in employee %}
       <tr class="text-center text-gray-600 border-t-2 border-solid border-gray-200">
@@ -47,30 +56,31 @@
     class="py-1 bg-white rounded-b-lg max-w-screen-lg mx-auto shadow-md"
   ></div>
 
-    <div class="flex flex-wrap justify-center mt-4 md:mt-6">
-        {% if page_obj.has_previous %}
-            <a class="bg-white mr-1 px-2 py-1 rounded-l-md shadow hover:bg-color-primary transition duration-150 ease-linear hover:text-white" href="?page={{ page_obj.previous_page_number }}">prev</a>
-        {% endif %}
+  {% comment %} Paginator {% endcomment %}
+  <div class="flex flex-wrap justify-center mt-4 md:mt-6">
+      {% if page_obj.has_previous %}
+          <a class="bg-white mr-1 px-2 py-1 rounded-l-md shadow hover:bg-color-primary transition duration-150 ease-linear hover:text-white" href="?page={{ page_obj.previous_page_number }}">prev</a>
+      {% endif %}
 
-        
-        {% if paginator.num_pages > 1 %}
-            {% for page in paginator.page_range %}
+      
+      {% if paginator.num_pages > 1 %}
+          {% for page in paginator.page_range %}
 
-            {% if page != page_obj.number %}
-                <a class="bg-white mx-1 px-2 py-1 rounded-md shadow hover:bg-color-primary transition duration-150 ease-linear hover:text-white" href="?page={{ page }}&filter={{filter}}">{{page}}</a>
-            {% endif %}
+          {% if page != page_obj.number %}
+              <a class="bg-white mx-1 px-2 py-1 rounded-md shadow hover:bg-color-primary transition duration-150 ease-linear hover:text-white" href="?page={{ page }}&filter={{filter}}">{{page}}</a>
+          {% endif %}
 
-            {% if page == page_obj.number %}
-                <a class="bg-color-primary-dark text-white mx-1 px-2 py-1 rounded-md shadow" href="?page={{ page }}&filter={{filter}}">{{page}}</a>
-            {% endif %}
-                
-            {% endfor %}
-        {% endif %}
-            
-        {% if page_obj.has_next %}
-            <a class="bg-white ml-1 px-2 py-1 rounded-r-md shadow hover:bg-color-primary transition duration-150 ease-linear hover:text-white" href="?page={{ page_obj.next_page_number }}&filter={{filter}}">next</a>
-        {% endif %}
-    </div>
+          {% if page == page_obj.number %}
+              <a class="bg-color-primary-dark text-white mx-1 px-2 py-1 rounded-md shadow" href="?page={{ page }}&filter={{filter}}">{{page}}</a>
+          {% endif %}
+              
+          {% endfor %}
+      {% endif %}
+          
+      {% if page_obj.has_next %}
+          <a class="bg-white ml-1 px-2 py-1 rounded-r-md shadow hover:bg-color-primary transition duration-150 ease-linear hover:text-white" href="?page={{ page_obj.next_page_number }}&filter={{filter}}">next</a>
+      {% endif %}
+  </div>
  
 </main>
 {% endblock main_content %}

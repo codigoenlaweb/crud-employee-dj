@@ -1,0 +1,23 @@
+{% extends 'modules/base.html' %} {% load static %}
+{% block head_title%}Add employee{% endblock head_title %}
+
+{% block main_content %}
+<main class="container-primary min-h-screen">
+  <section class="container-secondary">
+    <h2 class="text-xl md:text-2xl text-color-primary font-bold text-center">New Employee</h2>
+    <ul>
+      <li>{{form.first_name.errors}}</li>
+      <li>{{form.last_name.errors}}</li>
+      <li>{{form.job.errors}}</li>
+      <li>{{form.department.errors}}</li>
+      <li>{{form.avatar.errors}}</li>
+    </ul>
+    <form class="flex flex-col items-center" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      {{form.first_name}} {{form.last_name}} {{form.job}} {{form.department}}
+      {{form.avatar}}
+      <input type="submit" value="Create" class="button-primary border-2 border-color-primary-dark border-solid text-color-primary-dark hover:border-color-primary focus:border-color-primary">
+    </form>
+  </section>
+</main>
+{% endblock main_content %}

@@ -1,5 +1,7 @@
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Employee
+from .forms import EmployeeForm
 # Create your views here.
 
 class EmployeeListView(ListView):
@@ -30,6 +32,17 @@ class EmployeeDetailView(DetailView):
     model = Employee
     template_name = "employee/show-employee.html"
     context_object_name = 'employee'
-    
 
-    
+
+class EmployeeCreateView(CreateView):
+    model = Employee
+    template_name = "employee/create-employee.html"
+    form_class = EmployeeForm
+    success_url = reverse_lazy('employee:employeeList')
+
+
+
+class EmployeeUpdateView(UpdateView):
+    model = Employee
+    template_name = "update-employee.html"
+
