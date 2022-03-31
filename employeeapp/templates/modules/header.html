@@ -25,14 +25,14 @@
     >
       <li class="mr-2"><a class="link-active" href="{% url 'home:home' %}">Home</a></li>
       <li class="mr-2"><a class="link-desactive" href="{% url 'employee:employeeList' %}">List</a></li>
-      <li class="mr-2"><a class="link-desactive" href="">Deparments</a></li>
+      <li class="mr-2"><a class="link-desactive" href="{% url 'department:departmentList' %}">Deparments</a></li>
     </ul>
 
     {% comment %} menu table and desktop {% endcomment %}
     <ul class="hidden md:flex flex-wrap justify-center items-center">
       <li class="mr-2"><a class="link-active" href="{% url 'home:home' %}">Home</a></li>
       <li class="mr-2"><a class="link-desactive" href="{% url 'employee:employeeList' %}">List</a></li>
-      <li class="mr-2"><a class="link-desactive" href="">Deparments</a></li>
+      <li class="mr-2"><a class="link-desactive" href="{% url 'department:departmentList' %}">Deparments</a></li>
     </ul>
   </nav>
 </header>

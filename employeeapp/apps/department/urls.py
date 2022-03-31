@@ -4,5 +4,5 @@ from .views import *
 app_name = 'department'
 
 urlpatterns = [
-    # path('', prueba.as_view()),
+    path('', DepartmentListView.as_view(), name="departmentList"),
 ]
