@@ -4,6 +4,11 @@ from .models import Employee
 
 class EmployeeForm(forms.ModelForm):
     department = forms.ModelChoiceField(queryset=Department.objects.all(), empty_label='Department select')
+    first_name = forms.CharField(max_length=32, min_length=3)
+    last_name = forms.CharField(max_length=32, min_length=3)
+    job = forms.CharField(max_length=32, min_length=3)
+    
+    
     
     class Meta:
         model = Employee

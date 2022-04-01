@@ -1,10 +1,11 @@
 {% extends 'modules/base.html' %} {% load static %}
-{% block head_title%}Add employee{% endblock head_title %}
+{% block head_title%}Add deparment{% endblock head_title %}
 
 {% block main_content %}
 <main class="container-primary min-h-screen">
   <section class="container-secondary">
-    <h2 class="text-xl md:text-2xl text-color-primary font-bold text-center">New Employee</h2>
+    <h2 class="text-xl md:text-2xl text-color-primary font-bold text-center">New Department</h2>
+    
     {% if form.errors %}
       <div class="px-2 py-1 w-full max-w-xs mx-auto bg-red-200 rounded-md border border-red-800">
        {% for field in form %}
@@ -16,10 +17,17 @@
        {% endfor %}
       </div>
     {% endif %}
+
     <form class="flex flex-col items-center" action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-      {{form.first_name}} {{form.last_name}} {{form.job}} {{form.department}}
-      {{form.avatar}}
+      {% csrf_token %}
+      <h2 class="text-lg md:text-xl text-center text-color-primary-dark mt-4">Deparment</h2>
+      {{form.department_name}}
+      {{form.department_short_name}}
+      <h2 class="text-lg md:text-xl text-center text-color-primary-dark mt-4">Employee</h2>
+      {{form.employee_first_name}}
+      {{form.employee_last_name}}
+      {{form.employee_job}}
+      {{form.employee_avatar}}
       <input type="submit" value="Create" class="button-primary border-2 border-color-primary-dark border-solid text-color-primary-dark hover:border-color-primary focus:border-color-primary">
     </form>
   </section>

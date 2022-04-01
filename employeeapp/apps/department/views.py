@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, FormView
 from .models import Department
+from .forms import DepartmentAndEmployeeForm
+from apps.employee.models import Employee
 
 
 class DepartmentListView(ListView):
@@ -29,3 +31,26 @@ class DepartmentListView(ListView):
             context['filter'] = ''
 
         return context
+
+
+class DepartmentCreateView(FormView):
+    template_name = "department/create-department.html"
+    form_class = DepartmentAndEmployeeForm
+    success_url = reverse_lazy('department:departmentList')
+
+    def form_valid(self, form):
+        department = Department.objects.create(
+            name=form.cleaned_data['department_name'],
+            short_name=form.cleaned_data['department_short_name'],
+            active=True
+        )
+
+        employee = Employee.objects.create(
+            department=department,
+            first_name=form.cleaned_data['employee_first_name'],
+            last_name=form.cleaned_data['employee_last_name'],
+            job=form.cleaned_data['employee_job'],
+            avatar=form.cleaned_data['employee_avatar'],
+        )
+
+        return super(DepartmentCreateView, self).form_valid(form)

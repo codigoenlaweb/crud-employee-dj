@@ -5,4 +5,5 @@ app_name = 'department'
 
 urlpatterns = [
     path('', DepartmentListView.as_view(), name="departmentList"),
+    path('add department', DepartmentCreateView.as_view(), name='deparmentcreate'),
 ]
