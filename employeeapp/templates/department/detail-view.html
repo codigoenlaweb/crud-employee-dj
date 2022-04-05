@@ -27,12 +27,12 @@
       >
         <a
           class="mx-2 md:mx-4 button-primary border-2 border-color-primary-dark border-solid text-color-primary-dark hover:border-color-primary focus:border-color-primary"
-          href=""
+          href="{% url 'department:departmentupdate' department.id %}"
           >Update</a
         >
         <a
           class="mx-2 md:mx-4 button-primary border-2 border-color-primary-dark border-solid text-color-primary-dark hover:border-color-primary focus:border-color-primary"
-          href=""
+          href="{% url 'department:departmentdelete' department.id %}"
           >Delete</a
         >
       </div>

@@ -1,0 +1,23 @@
+{% extends 'modules/base.html' %} {% load static %}
+{% block head_title%}Update {{employee.first_name}}{% endblock head_title %}
+
+{% block main_content %}
+<main class="container-primary min-h-screen">
+  <section class="container-secondary">
+    <h2 class="text-xl md:text-2xl text-color-primary font-bold text-center">Update {{employee.first_name}}</h2>
+    <ul>
+      <li>{{form.name.errors}}</li>
+      <li>{{form.short_name.errors}}</li>
+    </ul>
+    <form class="flex flex-col items-center" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      {{form.name}} {{form.short_name}} {{form.active}}
+
+      <div class="flex justify-center items-center">
+        <a class="text-color-primary-dark transition duration-150 ease-linear hover:text-color-primary focus:text-color-primary mr-4 outline-color-primary" href="{% url 'department:departmentdetail' department.id %}">Go to back</a>
+        <input type="submit" value="Update" class="button-primary border-2 border-color-primary-dark border-solid text-color-primary-dark hover:border-color-primary focus:border-color-primary">
+      </div>
+    </form>
+  </section>
+</main>
+{% endblock main_content %}

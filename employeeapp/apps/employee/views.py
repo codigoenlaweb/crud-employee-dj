@@ -55,7 +55,6 @@ class EmployeeUpdateView(UpdateView):
     def form_valid(self, form):
         """If the form is valid, save the associated model."""
         employee = form.save()
-        print(employee.avatar)
         self.success_url = reverse_lazy(
             'employee:employeeshow', args=[employee.id])
         return super().form_valid(form)
